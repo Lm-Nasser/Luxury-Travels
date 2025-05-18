@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Travel - User Management</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        td {
+            border: 1px solid #ddd;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+        }
+    </style>
+</head>
+
+<body class="font-sans bg-gray-100 min-h-screen flex">
+    <!-- Sidebar -->
+    <aside class="w-64 bg-gray-900 text-white h-screen sticky top-0 overflow-y-auto hidden md:block">
+        <div class="p-4 border-b border-gray-800">
+            <a href="#" class="flex items-center">
+                <span class="text-xl font-bold text-yellow-600">Luxury Travels</span>
+            </a>
+        </div>
+        <div class="p-4 border-b border-gray-800 flex items-center">
+            <img src="https://cdn-icons-png.flaticon.com/512/15239/15239514.png" alt="Admin"
+                class="w-10 h-10 rounded-full mr-3">
+            <div>
+                <p class="font-medium">Admin User</p>
+                <p class="text-xs text-gray-400">Administrator</p>
+            </div>
+        </div>
+        <nav class="p-4">
+            <p class="text-xs text-gray-500 font-medium uppercase mb-4">Main Menu</p>
+            <a href="/public/dashboard.html" class="flex items-center py-3 px-3 rounded-lg mb-1 text-gray-300 hover:bg-gray-800">Dashboard</a>
+            <a href="/public/adduser.html" class="flex items-center py-3 px-3 rounded-lg mb-1 bg-yellow-700 text-white">Users</a>
+            <a href="/public/addTrip.html" class="flex items-center py-3 px-3 rounded-lg mb-1 text-gray-300 hover:bg-gray-800">Trips & Packages</a>
+            <a href="/public/bookings.html" class="flex items-center py-3 px-3 rounded-lg mb-1 text-gray-300 hover:bg-gray-800">Bookings</a>
+            <a href="/public/customers.html" class="flex items-center py-3 px-3 rounded-lg mb-1 text-gray-300 hover:bg-gray-800">Customers</a>
+
+            <p class="text-xs text-gray-500 font-medium uppercase mb-4 mt-8">Settings</p>
+            <a href="#" class="flex items-center py-3 px-3 rounded-lg mb-1 text-gray-300 hover:bg-gray-800">Settings</a>
+            <a href="#" id="logoutLink" class="flex items-center py-3 px-3 rounded-lg mb-1 text-gray-300 hover:bg-gray-800">Logout</a>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="flex-1 flex flex-col min-h-screen overflow-hidden">
+        <header class="bg-white shadow-sm py-4 px-4 flex justify-between items-center">
+            <h1 class="text-xl font-semibold">Users</h1>
+        </header>
+
+        <main class="p-6">
+            <div class="container mx-auto p-6 mt-10  bg-white shadow-lg rounded-lg">
+                <h2 class="text-3xl font-semibold text-gray-800 mb-6 text-center">Add User</h2>
+                <div id="message">
+                    
+                </div>
+                <form class=" p-8" id="user_form" method="post">
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="username">Username</label>
+                        <input
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-800"
+                            id="username" name="username" type="text" placeholder="Enter username" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="email">Email</label>
+                        <input
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-800"
+                            id="email" name="email" type="email" placeholder="Enter email" required>
+                    </div>
+                    <div class="mb-6">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="password">Password</label>
+                        <input
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-800"
+                            id="password" name="password" type="password" placeholder="Enter password" required>
+                    </div>
+                    <div class="flex justify-center">
+                        <button
+                            class="bg-gray-800 text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-900 transition"
+                            type="submit" id="submit" name="submit">Create Account</button>
+                    </div>
+                </form>
+
+                <h2 class="text-3xl font-semibold text-gray-800 mt-10 mb-6 text-center">User Table</h2>
+                <div class="overflow-x-auto">
+                    <table class="w-full table-auto bg-white shadow-lg rounded-lg" id="users">
+                        <thead class="bg-gray-800 text-white">
+                            <tr>
+                                <th class="px-6 py-3">ID</th>
+                                <th class="px-6 py-3">Username</th>
+                                <th class="px-6 py-3">Email</th>
+                                <th class="px-6 py-3">Creation Date</th>
+                                <th class="px-6 py-3">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-center">
+                            <tr class="">
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="/adduser.js"></script>
+
+</body>
+
+</html>

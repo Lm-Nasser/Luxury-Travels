@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour Overview</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body class="font-sans text-gray-800 bg-gray-50">
+    <!-- Header -->
+    <header class="fixed w-full z-50 bg-white bg-opacity-95 shadow-md">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <a href="/" class="text-2xl font-bold text-yellow-700">Luxury Travel</a>
+                </div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="/" class="text-base font-medium hover:text-yellow-700 transition duration-300">Home</a>
+                    <a href="#" class="text-base font-medium hover:text-yellow-700 transition duration-300">About Us</a>
+                    <a href="#" class="text-base font-medium hover:text-yellow-700 transition duration-300">Contact</a>
+                </nav>
+                <div class="md:hidden">
+                    <button class="text-gray-800 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-24 pb-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row">
+                <!-- Left Column - Main Image and Gallery -->
+                <div class="lg:w-2/3 pr-0 lg:pr-8 mb-8 lg:mb-0">
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden mb-6">
+                        <img id="imageH" src=""
+                            alt="" class="w-full h-96 object-cover" >
+                    </div>
+                    <div class="grid grid-cols-2 gap-4" id="imageContainer">
+                        
+                    </div>
+                </div>
+
+                <!-- Right Column - Tour Info and Booking CTA -->
+                <div class="lg:w-1/3">
+                    <div class="bg-white rounded-lg shadow-lg p-6 mb-6 sticky top-24">
+                        <h1 class="text-3xl font-bold mb-2" id="tripTitle">Sahara Desert Expedition</h1>
+                        <div class="flex items-center space-x-10 mb-4">
+                            <div class=" space-x-2">
+                                <i class="fa-solid fa-location-dot text-yellow-700"></i>
+                                <span class="text-gray-600 text-xl" >From: <strong id="from">test</strong></span>
+                            </div>
+                            <div class=" space-x-2">
+                                <i class="fa-solid fa-location-dot text-yellow-700"></i>
+                                <span class="text-gray-600 text-xl" >To: <strong id="to">test </strong></span>
+                            </div>
+                        </div>                         
+                        <div class="flex items-center mb-4">
+                            <div class="flex text-yellow-700 mr-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="text-gray-600 text-sm">4.8 (58 reviews)</span>
+                        </div>
+
+                        <div class="border-t border-b border-gray-100 py-4 mb-4">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="flex items-center">
+                                    <i class="fas fa-clock text-yellow-700 mr-2"></i>
+                                    <div>
+                                        <p class="text-sm text-gray-600">Duration</p>
+                                        <p class="font-medium">3 Days</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-users text-yellow-700 mr-2"></i>
+                                    <div>
+                                        <p class="text-sm text-gray-600">Group Size</p>
+                                        <p class="font-medium">Max 12</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-language text-yellow-700 mr-2"></i>
+                                    <div>
+                                        <p class="text-sm text-gray-600">Languages</p>
+                                        <p class="font-medium">English, French</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-map-marker-alt text-yellow-700 mr-2"></i>
+                                    <div>
+                                        <p class="text-sm text-gray-600">Pickup</p>
+                                        <p class="font-medium">Your Hotel</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-6 border-b border-gray-100">
+                            <div class="mb-6">
+                                <label class="block text-gray-700 font-medium mb-2">Select Tour Type:</label>
+                                <div class="relative">
+                                    <select name="" id="tourType" 
+                                        class="w-full p-3 border border-gray-300 rounded-lg appearance-none focus:outline-none focus:ring-2 focus:ring-yellow-700">
+                                        <option value="Group Tour">Group Tour</option>
+                                        <option value="Private Tour">Private Tour</option>
+                                    </select>
+                                    <div
+                                        class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+                                        <i class="fas fa-chevron-down text-gray-400"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-yellow-100 text-yellow-700 p-2  rounded-lg text-sm text-center mb-4">
+                                <i class="fas fa-tag mr-1"></i> <span id="discount1">0</span>% discount for bookings on this trip
+                            </div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-gray-600">Price For Adults</span>
+                                <div>
+                                    <span class="text-gray-400 line-through mr-2" id="original_Price_Adults"></span>
+                                    <span class="text-2xl font-bold text-yellow-700" ><span id="tourG">Price</span> MAD</span>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-gray-600">Price For Children</span>
+                                <div>
+                                    <span class="text-gray-400 line-through mr-2" id="original_Price_Children"></span>
+                                    <span class="text-2xl font-bold text-yellow-700" ><span id="tourG_C">Price</span> MAD</span>
+                                </div>
+                            </div>
+                            
+                        </div>
+
+                        <div class="flex justify-center mt-4 space-x-4 text-gray-600">
+                            <span class="flex items-center text-sm">
+                                <i class="fas fa-calendar-alt mr-1"></i> Available daily
+                            </span>
+                            <span class="flex items-center text-sm">
+                                <i class="fas fa-shield-alt mr-1"></i> Free cancellation
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tour Overview -->
+    <section class="py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row">
+                <!-- Left Column - Main Content -->
+                <div class="lg:w-2/3 pr-0 lg:pr-8">
+                    <!-- Tour Description -->
+                    <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
+                        <h2 class="text-2xl font-bold mb-6">Tour Overview</h2>
+                        <p class="text-gray-600 mb-4">
+                            <strong class="" id="tripTitle2">Experience the magic of the Sahara Desert</strong> <br>
+                            <span class="" id="description">
+                                with our premium 3-day
+                                expedition. This unforgettable journey takes you from the bustling streets of Marrakech
+                                through the majestic Atlas Mountains and into the golden dunes of the Sahara.
+                            </span>
+                        </p>
+                        <p class="text-gray-600 mb-4" id="tripDetails">
+                            Travel in comfort aboard our air-conditioned 4x4 vehicles as you traverse diverse
+                            landscapes. Visit the UNESCO World Heritage site of Aït Benhaddou, ride camels through the
+                            desert at sunset, and spend a night under the stars in our luxury desert camp.
+                        </p>
+                    </div>
+
+                    <!-- Highlights -->
+                    <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
+                        <h2 class="text-2xl font-bold mb-6">Tour Highlights</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="flex">
+                                <div
+                                    class="bg-yellow-100 p-3 rounded-full h-12 w-12 flex items-center justify-center mr-4 shrink-0">
+                                    <i class="fas fa-mountain text-yellow-700"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-lg mb-2">Atlas Mountains</h3>
+                                    <p class="text-gray-600">Cross the stunning High Atlas Mountains through the Tizi
+                                        n'Tichka pass with panoramic views.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex">
+                                <div
+                                    class="bg-yellow-100 p-3 rounded-full h-12 w-12 flex items-center justify-center mr-4 shrink-0">
+                                    <i class="fas fa-landmark text-yellow-700"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-lg mb-2">Aït Benhaddou</h3>
+                                    <p class="text-gray-600">Explore this ancient fortified village and UNESCO World
+                                        Heritage site with a local guide.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex">
+                                <div
+                                    class="bg-yellow-100 p-3 rounded-full h-12 w-12 flex items-center justify-center mr-4 shrink-0">
+                                    <i class="fas fa-moon text-yellow-700"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-lg mb-2">Desert Camp</h3>
+                                    <p class="text-gray-600">Overnight stay in a luxury desert camp with proper beds,
+                                        private bathrooms, and authentic cuisine.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex">
+                                <div
+                                    class="bg-yellow-100 p-3 rounded-full h-12 w-12 flex items-center justify-center mr-4 shrink-0">
+                                    <i class="fas fa-drumstick-bite text-yellow-700"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-lg mb-2">Berber Experience</h3>
+                                    <p class="text-gray-600">Enjoy traditional Berber music, storytelling, and
+                                        stargazing around the campfire.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex">
+                                <div
+                                    class="bg-yellow-100 p-3 rounded-full h-12 w-12 flex items-center justify-center mr-4 shrink-0">
+                                    <i class="fas fa-horse text-yellow-700"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-lg mb-2">Camel Trek</h3>
+                                    <p class="text-gray-600">Experience a camel ride through the golden dunes at sunset
+                                        and sunrise.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex">
+                                <div
+                                    class="bg-yellow-100 p-3 rounded-full h-12 w-12 flex items-center justify-center mr-4 shrink-0">
+                                    <i class="fas fa-sun text-yellow-700"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-lg mb-2">Desert Sunrise</h3>
+                                    <p class="text-gray-600">Wake up early to witness the magical sunrise over the
+                                        Sahara dunes.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Itinerary Preview -->
+                    <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
+                        <div class="flex justify-between items-center mb-6">
+                            <h2 class="text-2xl font-bold">Itinerary Preview</h2>
+                            <a href="#" class="text-yellow-700 font-medium hover:underline">View detailed itinerary</a>
+                        </div>
+
+                        <div class="space-y-6">
+                            <div class="flex">
+                                <div class="mr-4">
+                                    <div
+                                        class="bg-yellow-700 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold">
+                                        1</div>
+                                </div>
+                                <div class="border-b border-gray-100 pb-6 w-full">
+                                    <h3 class="font-bold text-lg mb-2">Day 1: Marrakech to Ouarzazate</h3>
+                                    <p class="text-gray-600">Cross the Atlas Mountains, visit Aït Benhaddou, overnight
+                                        in Ouarzazate.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex">
+                                <div class="mr-4">
+                                    <div
+                                        class="bg-yellow-700 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold">
+                                        2</div>
+                                </div>
+                                <div class="border-b border-gray-100 pb-6 w-full">
+                                    <h3 class="font-bold text-lg mb-2">Day 2: Dades Valley to Merzouga Desert</h3>
+                                    <p class="text-gray-600">Drive through scenic valleys, camel trek into the desert,
+                                        overnight in desert camp.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex">
+                                <div class="mr-4">
+                                    <div
+                                        class="bg-yellow-700 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold">
+                                        3</div>
+                                </div>
+                                <div class="w-full">
+                                    <h3 class="font-bold text-lg mb-2">Day 3: Merzouga to Marrakech</h3>
+                                    <p class="text-gray-600">Desert sunrise, return journey through Draa Valley, arrival
+                                        in Marrakech.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Inclusions & Exclusions -->
+                    <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
+                        <h2 class="text-2xl font-bold mb-6">What's Included</h2>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div>
+                                <h3 class="text-lg font-bold mb-4 flex items-center">
+                                    <i class="fas fa-check-circle text-yellow-700 mr-2"></i>
+                                    Included
+                                </h3>
+                                <ul class="space-y-3">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-yellow-700 mt-1 mr-2"></i>
+                                        <span>Hotel pickup and drop-off</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-yellow-700 mt-1 mr-2"></i>
+                                        <span>Transportation in 4x4 vehicle</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-yellow-700 mt-1 mr-2"></i>
+                                        <span>English-speaking guide</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-yellow-700 mt-1 mr-2"></i>
+                                        <span>2 nights accommodation</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-yellow-700 mt-1 mr-2"></i>
+                                        <span>Daily breakfast & dinner</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-yellow-700 mt-1 mr-2"></i>
+                                        <span>Camel rides in the desert</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-yellow-700 mt-1 mr-2"></i>
+                                        <span>Bottled water during the tour</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <h3 class="text-lg font-bold mb-4 flex items-center">
+                                    <i class="fas fa-times-circle text-gray-400 mr-2"></i>
+                                    Not Included
+                                </h3>
+                                <ul class="space-y-3">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-times text-gray-400 mt-1 mr-2"></i>
+                                        <span>Lunches and drinks</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-times text-gray-400 mt-1 mr-2"></i>
+                                        <span>Tips and gratuities</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-times text-gray-400 mt-1 mr-2"></i>
+                                        <span>Personal expenses</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-times text-gray-400 mt-1 mr-2"></i>
+                                        <span>Travel insurance</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-times text-gray-400 mt-1 mr-2"></i>
+                                        <span>Optional activities</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Reviews Preview -->
+                    <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
+                        <div class="flex justify-between items-center mb-6">
+                            <h2 class="text-2xl font-bold">Customer Reviews</h2>
+                            <a href="#" class="text-yellow-700 font-medium hover:underline">View all 58 reviews</a>
+                        </div>
+
+                        <div class="space-y-6">
+                            <div class="border-b border-gray-100 pb-6">
+                                <div class="flex justify-between mb-2">
+                                    <div class="flex items-center">
+                                        <div
+                                            class="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center mr-3">
+                                            <span class="text-yellow-700 font-bold">SM</span>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold">Sarah M.</h4>
+                                            <p class="text-gray-500 text-sm">February 2025</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex text-yellow-700">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                                <p class="text-gray-600">"This tour was the highlight of our Morocco trip! The desert
+                                    camp was much more comfortable than expected, and watching the stars at night was
+                                    incredible. Our guide Hassan was knowledgeable and funny. Highly recommend!"</p>
+                            </div>
+
+                            <div class="border-b border-gray-100 pb-6">
+                                <div class="flex justify-between mb-2">
+                                    <div class="flex items-center">
+                                        <div
+                                            class="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center mr-3">
+                                            <span class="text-yellow-700 font-bold">JD</span>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold">James D.</h4>
+                                            <p class="text-gray-500 text-sm">January 2025</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex text-yellow-700">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                </div>
+                                <p class="text-gray-600">"Amazing experience overall. The camel ride was fun (though a
+                                    bit uncomfortable after a while) and the desert camp exceeded our expectations. The
+                                    only downside was the long drive, but the scenery made up for it. Worth every
+                                    penny!"</p>
+                            </div>
+                            
+                            <a href="" id="tripReview"
+                                class="block text-center w-full bg-yellow-700 text-white py-4 px-6 rounded-lg font-bold text-lg hover:bg-yellow-800 transition duration-300 shadow-md">
+                                Leave a Review
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column - Booking Form -->
+                <div class="lg:w-1/3" id="booking">
+                    <div class="bg-white rounded-lg shadow-lg p-6 sticky top-24">
+                        <h2 class="text-2xl font-bold mb-6 text-center">Book This Tour</h2>
+
+                        <form id="booking_form">
+
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                <div>
+                                    <label class="block text-gray-700 font-medium mb-2">Full Name:</label>
+                                    <input type="text" name="fullName"
+                                        class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-700">
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 font-medium mb-2">Nationality:</label>
+                                    <input type="text" name="Nationality"
+                                        class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-700">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                <div>
+                                    <label class="block text-gray-700 font-medium mb-2">Email:</label><br>
+                                    <input type="text" name="email"
+                                        class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-700">
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 font-medium ">Phone Number:</label>
+                                    <label class="block text-gray-700 font-small mb-2">Preferred WhatsApp number</label>
+                                    <input type="text" name="phone" placeholder="+212 600-000000"
+                                        class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-700">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                <div>
+                                    <label class="block text-gray-700 font-medium mb-2">Pickup Location
+                                        (Riad/Hotel):</label>
+                                    <input type="text" name="pickupLocation"
+                                        class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-700">
+                                </div>
+                                <div class="">
+                                    <label class="block text-gray-700 font-medium mb-2">Date</label>
+                                    <input type="date" name="date"
+                                        class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-700">
+                                </div>
+                                
+                            </div>
+
+                            <div class="mb-4 grid grid-cols-1 md:grid-cols-2 gap-2">
+                                <div>
+                                    <label class="block text-gray-700 font-medium mb-2">Number of Travelers Adults:</label>
+                                    <div class="flex items-center">
+                                        <button id="decreaseAdults" type="button" class="bg-gray-200 px-4 py-2 rounded-l-lg decrease" data-target="adults">
+                                            <i class="fas fa-minus"></i>
+                                        </button>
+                                        <input type="number" id="adultsInput" value="0" min="" name="adults" readonly
+                                            class="w-full text-center py-2 border-t border-b border-gray-300">
+                                        <button id="increaseAdults" type="button" class="bg-gray-200 px-4 py-2 rounded-r-lg increase" data-target="adults">
+                                            <i class="fas fa-plus"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label class="block text-gray-700 font-medium mb-2">Number of Travelers Children:</label>
+                                    <div class="flex items-center">
+                                        <button id="decreaseChildren" type="button" class="bg-gray-200 px-4 py-2 rounded-l-lg decrease" data-target="children">
+                                            <i class="fas fa-minus"></i>
+                                        </button>
+                                        <input type="number" id="childrenInput" value="0" min="0" name="children" readonly
+                                            class="w-full text-center py-2 border-t border-b border-gray-300">
+                                        <button id="increaseChildren" type="button" class="bg-gray-200 px-4 py-2 rounded-r-lg increase" data-target="children">
+                                            <i class="fas fa-plus"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <label class="block text-gray-700 font-medium mb-2">Tour Type:</label>
+                                <input type="text" name="tourType" id="tourType2" value=""
+                                    class="w-full p-3 border border-gray-300 rounded-lg border border-gray-300"
+                                    readonly>
+                            </div>
+                            
+
+                            <div class="mb-4">
+                                <label class="block text-gray-700 font-medium mb-2">Special Requests (Optional):</label>
+                                <textarea name="SR"
+                                    class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-700 h-24"></textarea>
+                            </div>
+
+                            <div class="border-t border-b border-gray-100 py-4 my-6">
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium">Price Adults (<span id="A_T_Number">0</span> travelers):</span>
+                                    <div>
+                                        <span class="font-bold" id="priceAdults">0</span><span class="font-bold"> MAD</span>
+                                        <input type="number" name="priceAdultsInput" id="priceAdultsInput" value="" class="hidden">
+                                    </div>
+                                    
+                                </div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium">Price Children (<span id="C_T_Number">0</span> travelers):</span>
+                                    <div>
+                                        <span class="font-bold" id="priceChildren">0</span><span class="font-bold"> MAD</span>
+                                        <input type="number" name="priceChildrenInput" id="priceChildrenInput" value="" class="hidden">
+
+                                    </div>
+                                </div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium">Discount:</span>
+                                    <div>
+                                        <span class="font-bold text-green-600">-<span id="discountNumber">0</span> %</span>
+                                    </div>
+                                </div>
+                                <div class="flex justify-between text-lg">
+                                    <span class="font-bold">Total Price:</span>
+                                    <div>
+                                        <span class="font-bold text-yellow-700" id="totalPrice">0</span><span class="font-bold text-yellow-700"> MAD</span>
+                                        <input type="number" name="totalPriceInput" id="totalPriceInput" class="hidden">
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button type="submit"
+                                class="w-full bg-yellow-700 text-white py-4 px-6 rounded-lg font-bold text-lg hover:bg-yellow-800 transition duration-300 shadow-md">
+                                COMPLETE BOOKING
+                            </button>
+
+                            <p class="text-gray-500 text-sm text-center mt-4">
+                                <i class="fas fa-lock mr-1"></i> Secure payment processing
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Tours -->
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-10 text-center">You Might Also Like</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Tour 1 -->
+                <div
+                    class="bg-white rounded-lg shadow-lg overflow-hidden group hover:shadow-xl transition duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1527528635755-d2ed9370e552?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            alt="Atlas Mountains"
+                            class="w-full h-48 object-cover transform group-hover:scale-105 transition duration-500">
+                        <div
+                            class="absolute top-4 left-4 bg-yellow-700 text-white px-3 py-1 rounded-full text-sm font-medium">
+                            Popular</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 group-hover:text-yellow-700 transition duration-300">Atlas
+                            Mountains Day Trip</h3>
+                        <p class="text-gray-600 mb-4">Explore Berber villages and stunning mountain landscapes on this
+                            full-day tour from Marrakech.</p>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-yellow-700 font-bold text-xl">€79</span>
+                                <span class="text-gray-500 text-sm"> / person</span>
+                            </div>
+                            <a href="#" class="text-yellow-700 font-medium hover:underline">View Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tour 2 -->
+                <div
+                    class="bg-white rounded-lg shadow-lg overflow-hidden group hover:shadow-xl transition duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1597212618440-806262de4f6b?q=80&w=2073&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            alt="Marrakech City Tour"
+                            class="w-full h-48 object-cover transform group-hover:scale-105 transition duration-500">
+                        <div
+                            class="absolute top-4 left-4 bg-yellow-700 text-white px-3 py-1 rounded-full text-sm font-medium">
+                            Bestseller</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 group-hover:text-yellow-700 transition duration-300">Marrakech
+                            City Tour</h3>
+                        <p class="text-gray-600 mb-4">Discover the historic medina, palaces, and gardens of Marrakech
+                            with a knowledgeable local guide.</p>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-yellow-700 font-bold text-xl">€45</span>
+                                <span class="text-gray-500 text-sm"> / person</span>
+                            </div>
+                            <a href="#" class="text-yellow-700 font-medium hover:underline">View Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tour 3 -->
+                <div
+                    class="bg-white rounded-lg shadow-lg overflow-hidden group hover:shadow-xl transition duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1624802746702-60ca95bdb605?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            alt="Essaouira Tour"
+                            class="w-full h-48 object-cover transform group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 group-hover:text-yellow-700 transition duration-300">Essaouira
+                            Day Trip</h3>
+                        <p class="text-gray-600 mb-4">Visit the charming coastal town of Essaouira with its blue and
+                            white medina and beautiful beaches.</p>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-yellow-700 font-bold text-xl">€65</span>
+                                <span class="text-gray-500 text-sm"> / person</span>
+                            </div>
+                            <a href="#" class="text-yellow-700 font-medium hover:underline">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-gray-300 pt-16 pb-6">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <!-- Column 1 -->
+                <div>
+                    <h3 class="text-xl font-bold text-yellow-600 mb-6">Luxury Travels</h3>
+                    <p class="mb-4">Creating extraordinary travel experiences with meticulous attention to every detail.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">FB</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">IG</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">TW</a>
+                    </div>
+                </div>
+
+                <!-- Column 2 -->
+                <div>
+                    <h3 class="text-xl font-bold text-yellow-600 mb-6">Explore</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="hover:text-white transition duration-300">Our Destinations</a></li>
+                        <li><a href="#" class="hover:text-white transition duration-300">Luxury Experiences</a></li>
+                        <li><a href="#" class="hover:text-white transition duration-300">Private Tours</a></li>
+                        <li><a href="#" class="hover:text-white transition duration-300">VIP Services</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3 -->
+                <div>
+                    <h3 class="text-xl font-bold text-yellow-600 mb-6">Information</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="hover:text-white transition duration-300">About Us</a></li>
+                        <li><a href="#" class="hover:text-white transition duration-300">How It Works</a></li>
+                        <li><a href="#" class="hover:text-white transition duration-300">Testimonials</a></li>
+                        <li><a href="#" class="hover:text-white transition duration-300">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4 -->
+                <div>
+                    <h3 class="text-xl font-bold text-yellow-600 mb-6">Contact Us</h3>
+                    <ul class="space-y-3">
+                        <li>Email: info@luxurytravels.com</li>
+                        <li>Phone: +212 612-345678</li>
+                        <li>Address: 123 Luxury Lane, Suite 100</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-6 text-center text-sm text-gray-500">
+                <p>&copy; 2025 Luxury Travels. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/trippage.js"></script>
+</body>
+
+</html>

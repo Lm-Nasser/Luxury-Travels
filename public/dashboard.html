@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - Luxury Travels</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+</head>
+<body class="font-sans bg-gray-100 min-h-screen flex">
+  <!-- Sidebar -->
+  <aside class="w-64 bg-gray-900 text-white h-screen sticky top-0 overflow-y-auto hidden md:block">
+    <div class="p-4 border-b border-gray-800">
+      <a href="#" class="flex items-center">
+        <span class="text-xl font-bold text-yellow-600">Luxury Travels</span>
+      </a>
+    </div>
+    <div class="p-4 border-b border-gray-800 flex items-center">
+      <img src="https://cdn-icons-png.flaticon.com/512/15239/15239514.png" alt="Admin" class="w-10 h-10 rounded-full mr-3">
+      <div>
+        <p class="font-medium">Admin User</p>
+        <p class="text-xs text-gray-400">Administrator</p>
+      </div>
+    </div>
+    <nav class="p-4">
+      <p class="text-xs text-gray-500 font-medium uppercase mb-4">Main Menu</p>
+      <a href="/public/dashboard.html" class="flex items-center py-3 px-3 rounded-lg mb-1 bg-yellow-700 text-white">Dashboard</a>
+            <a href="/public/adduser.html" class="flex items-center py-3 px-3 rounded-lg mb-1 text-gray-300 hover:bg-gray-800">Users</a>
+            <a href="/public/addTrip.html" class="flex items-center py-3 px-3 rounded-lg mb-1 text-gray-300 hover:bg-gray-800">Trips & Packages</a>
+            <a href="/public/bookings.html" class="flex items-center py-3 px-3 rounded-lg mb-1 text-gray-300 hover:bg-gray-800">Bookings</a>
+            <a href="/public/customers.html" class="flex items-center py-3 px-3 rounded-lg mb-1 text-gray-300 hover:bg-gray-800">Customers</a>
+
+      <p class="text-xs text-gray-500 font-medium uppercase mb-4 mt-8">Settings</p>
+      <a href="#" class="flex items-center py-3 px-3 rounded-lg mb-1 text-gray-300 hover:bg-gray-800">Settings</a>
+      <a href="#" id="logoutLink" class="flex items-center py-3 px-3 rounded-lg mb-1 text-gray-300 hover:bg-gray-800">Logout</a>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <div class="flex-1 flex flex-col min-h-screen overflow-hidden">
+    <header class="bg-white shadow-sm py-4 px-4">
+      <h1 class="text-xl font-semibold mb-4">Dashboard</h1>
+      <h1 class="text-xl font-semibold">Welcome <span class="text-yellow-700 inline-block" id="welcomeMessage"></span>!</h1>
+    </header>
+
+    <main class="p-6">
+      <div id="message">
+                    
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+        <div class="bg-white p-4 rounded-lg shadow-md">
+          <h2 class="text-gray-600">Total Bookings</h2>
+          <p class="text-2xl font-semibold">1,245</p>
+        </div>
+        <div class="bg-white p-4 rounded-lg shadow-md">
+          <h2 class="text-gray-600">New Customers</h2>
+          <p class="text-2xl font-semibold">326</p>
+        </div>
+        <div class="bg-white p-4 rounded-lg shadow-md">
+          <h2 class="text-gray-600">Revenue</h2>
+          <p class="text-2xl font-semibold">12,750 MAD</p>
+        </div>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow-md">
+        <canvas id="revenueChart"></canvas>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    const ctx = document.getElementById('revenueChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+        datasets: [{
+          label: 'Revenue',
+          data: [5000, 7000, 8000, 6000, 10000, 12000],
+          borderColor: 'rgb(255, 193, 7)',
+          backgroundColor: 'rgba(255, 193, 7, 0.2)',
+          fill: true
+        }]
+      },
+      options: {
+        responsive: true,
+      }
+    });
+  </script>
+    <script src="/dashboard.js"></script>
+</body>
+</html>

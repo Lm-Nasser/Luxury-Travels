@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Travel - Bookings Management</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="font-sans bg-gray-100 min-h-screen flex">
+    <!-- Sidebar -->
+    <aside class="w-64 bg-gray-900 text-white h-screen sticky top-0 overflow-y-auto hidden md:block">
+        <div class="p-4 border-b border-gray-800">
+            <a href="#" class="flex items-center">
+                <span class="text-xl font-bold text-yellow-600">Luxury Travels</span>
+            </a>
+        </div>
+        <div class="p-4 border-b border-gray-800 flex items-center">
+            <img src="https://cdn-icons-png.flaticon.com/512/15239/15239514.png" alt="Admin"
+                class="w-10 h-10 rounded-full mr-3">
+            <div>
+                <p class="font-medium">Admin User</p>
+                <p class="text-xs text-gray-400">Administrator</p>
+            </div>
+        </div>
+        <nav class="p-4">
+            <p class="text-xs text-gray-500 font-medium uppercase mb-4">Main Menu</p>
+            <a href="/public/dashboard.html" class="flex items-center py-3 px-3 rounded-lg mb-1 text-gray-300 hover:bg-gray-800">Dashboard</a>
+            <a href="/public/adduser.html" class="flex items-center py-3 px-3 rounded-lg mb-1 text-gray-300 hover:bg-gray-800">Users</a>
+            <a href="/public/addTrip.html" class="flex items-center py-3 px-3 rounded-lg mb-1 text-gray-300 hover:bg-gray-800">Trips & Packages</a>
+            <a href="/public/bookings.html" class="flex items-center py-3 px-3 rounded-lg mb-1 bg-yellow-700 text-white">Bookings</a>
+            <a href="/public/customers.html" class="flex items-center py-3 px-3 rounded-lg mb-1 text-gray-300 hover:bg-gray-800">Customers</a>
+
+            <p class="text-xs text-gray-500 font-medium uppercase mb-4 mt-8">Settings</p>
+            <a href="#" class="flex items-center py-3 px-3 rounded-lg mb-1 text-gray-300 hover:bg-gray-800">Settings</a>
+            <a href="#" id="logoutLink" class="flex items-center py-3 px-3 rounded-lg mb-1 text-gray-300 hover:bg-gray-800">Logout</a>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 mt-20">
+        <h2 class="text-4xl font-bold text-gray-800 mb-6">Bookings Overview</h2>
+        <div id="message">
+                    
+        </div>
+        
+        <div class="bg-white rounded-lg shadow-md overflow-hidden mx-auto">
+            <div class="bg-gray-50 px-6 py-4 border-b border-gray-200">
+                <h2 class="text-xl font-bold text-gray-800">Booking Details</h2>
+            </div>
+            <div class="p-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="text-gray-500 text-sm font-medium mb-1">Booking Reference Code</h3>
+                        <p class="text-gray-800 font-semibold" id="BookingReference">taste Booking Reference Code:</p>
+                    </div>
+                    <div>
+                        <h3 class="text-gray-500 text-sm font-medium mb-1">Status</h3>
+                        <p class="text-gray-800 font-semibold" id="Status"> Status</p>
+                    </div>
+                    <div>
+                        <h3 class="text-gray-500 text-sm font-medium mb-1">Full Name</h3>
+                        <p class="text-gray-800 font-semibold" id="FullName"> name</p>
+                    </div>
+                    <div>
+                        <h3 class="text-gray-500 text-sm font-medium mb-1">Email</h3>
+                        <p class="text-gray-800 font-semibold" id="Email"> email</p>
+                    </div>
+                    <div>
+                        <h3 class="text-gray-500 text-sm font-medium mb-1">Nationality</h3>
+                        <p class="text-gray-800 font-semibold" id="Nationality"> Nationality</p>
+                    </div>
+                    <div>
+                        <h3 class="text-gray-500 text-sm font-medium mb-1">Date</h3>
+                        <p class="text-gray-800 font-semibold" id="Date"> Date</p>
+                    </div>
+                    <div>
+                        <h3 class="text-gray-500 text-sm font-medium mb-1">Phone</h3>
+                        <p class="text-gray-800 font-semibold" id="Phone"> phone</p>
+                    </div>
+                    <div>
+                        <h3 class="text-gray-500 text-sm font-medium mb-1">Pickup Location</h3>
+                        <p class="text-gray-800 font-semibold" id="Pickup_Location"> Pickup Location</p>
+                    </div>
+                    <div>
+                        <h3 class="text-gray-500 text-sm font-medium mb-1">Tour Type</h3>
+                        <p class="text-gray-800 font-semibold" id="Tour_Type"> Tour Type</p>
+                    </div>
+                    <div>
+                        <h3 class="text-gray-500 text-sm font-medium mb-1">Travelers</h3>
+                        <p class="text-gray-800 font-semibold" >Adult: <span id="AdultTravelers"></span></p>
+                        <p class="text-gray-800 font-semibold" >Children: <span id="ChildrenTravelers"></span></p>
+                    </div>
+                </div>
+                
+                <hr class="my-6 border-gray-200">
+                
+                <div class="mb-4 border-b border-gray-200">
+                    <h3 class="text-gray-500 text-sm font-medium mb-2">Special Requests</h3>
+                    <p class="text-gray-800" id="SpecialRequest">Early check-in if possible. Celebrating our anniversary during the trip.</p>
+                    <br>
+                </div>
+                
+                <div>
+                    <h3 class="text-gray-500 text-sm font-medium mb-2">Travel Agent Notes:</h3>
+                    <p class="text-gray-800">####</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+        <script src="/bookingPreview.js"></script>
+</body>
+
+</html>
